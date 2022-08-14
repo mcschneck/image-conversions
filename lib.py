@@ -59,7 +59,7 @@ def convertRGBAtoBWA(img, threshold=None, alpha=None):
 def easyRGBAtoBWA(img):
     return convertRGBAtoBWA(img, threshold=None)
 
-def hasAlphaConvertRGBtoBW(img, threshold):
+def convertRGBtoBW(img, threshold):
     '''
     takes color image and converts to black and white without changing alpha
 
@@ -92,6 +92,13 @@ def hasAlphaConvertRGBtoBW(img, threshold):
                 p[0] = 0
                 p[1] = 0
                 p[2] = 0
-                
     return img
 
+
+# TODO: function that makes jpg into png (3 channel to 4 channel)
+
+# TODO: function that returns set of all colors in an image
+
+# TODO: function that changes a given color's transparency
+
+# TODO: function that changes a given region's transparency
