@@ -3,6 +3,30 @@ import cv2
 def addAlpha(img):
     return cv2.cvtColor(img, cv2.COLOR_RGB2RGBA)
 
+def makeTransparentBackground(img):
+    '''
+    takes white color in image and makes it transparent
+    '''
+        #default values for thresholds
+    rt = 240
+    gt = 240
+    bt = 240
+
+    wa = 0
+    ba = 255
+
+    for r in range(len(img)):
+        for c in range(len(img[0])):
+            p = img[r][c]
+            if p[0] >= rt and p[1] >= gt and p[2] >= bt:
+                # make lighter pixels white and transparent
+                p[0] = 255
+                p[1] = 255
+                p[2] = 255
+                p[3] = wa
+    return img
+
+
 def convertRGBAtoBWA(img, threshold=None, alpha=None):
     '''
     takes 4 channel color image and converts to 4 channel black and white image (binary image)
